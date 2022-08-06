@@ -5,24 +5,32 @@
 class CiInfo < Formula
   desc "Get CI related information"
   homepage "https://github.com/suzuki-shunsuke/ci-info"
-  version "2.0.3"
+  version "2.1.0"
   license "MIT"
 
   on_macos do
-    if Hardware::CPU.intel?
-      url "https://github.com/suzuki-shunsuke/ci-info/releases/download/v2.0.3/ci-info_2.0.3_darwin_amd64.tar.gz"
-      sha256 "bf3a196cc69243e7b47885293ade2b71f47d9b2c1f24b234c88d84a95f74546f"
+    url "https://github.com/suzuki-shunsuke/ci-info/releases/download/v2.1.0/ci-info_2.1.0_darwin_amd64.tar.gz"
+    sha256 "e80d8ae15ef375c2b2ab8adb6a897be8888bfc2cb49c524ac6f592964a1edab0"
 
-      def install
-        bin.install "ci-info"
+    def install
+      bin.install "ci-info"
+    end
+
+    if Hardware::CPU.arm?
+      def caveats
+        <<~EOS
+          The darwin_arm64 architecture is not supported for the CiInfo
+          formula at this time. The darwin_amd64 binary may work in compatibility
+          mode, but it might not be fully supported.
+        EOS
       end
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/suzuki-shunsuke/ci-info/releases/download/v2.0.3/ci-info_2.0.3_linux_amd64.tar.gz"
-      sha256 "f8a6193098e618c320de16a85bce25dba6f0a26ebb50d88347685c22a5d5a669"
+      url "https://github.com/suzuki-shunsuke/ci-info/releases/download/v2.1.0/ci-info_2.1.0_linux_amd64.tar.gz"
+      sha256 "e7fe3de9a50e15639dc82501ff23dd7ab2cddac0fb080e51700c4839de435985"
 
       def install
         bin.install "ci-info"
