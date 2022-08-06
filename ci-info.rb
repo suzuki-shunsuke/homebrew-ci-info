@@ -5,32 +5,40 @@
 class CiInfo < Formula
   desc "Get CI related information"
   homepage "https://github.com/suzuki-shunsuke/ci-info"
-  version "2.1.0"
+  version "2.1.1"
   license "MIT"
 
   on_macos do
-    url "https://github.com/suzuki-shunsuke/ci-info/releases/download/v2.1.0/ci-info_2.1.0_darwin_amd64.tar.gz"
-    sha256 "e80d8ae15ef375c2b2ab8adb6a897be8888bfc2cb49c524ac6f592964a1edab0"
+    if Hardware::CPU.intel?
+      url "https://github.com/suzuki-shunsuke/ci-info/releases/download/v2.1.1/ci-info_2.1.1_darwin_amd64.tar.gz"
+      sha256 "4ec51aebfdbc3c1ad0e60c987c930bfa8b804f3d84aabce820be9b3be93225ab"
 
-    def install
-      bin.install "ci-info"
+      def install
+        bin.install "ci-info"
+      end
     end
-
     if Hardware::CPU.arm?
-      def caveats
-        <<~EOS
-          The darwin_arm64 architecture is not supported for the CiInfo
-          formula at this time. The darwin_amd64 binary may work in compatibility
-          mode, but it might not be fully supported.
-        EOS
+      url "https://github.com/suzuki-shunsuke/ci-info/releases/download/v2.1.1/ci-info_2.1.1_darwin_arm64.tar.gz"
+      sha256 "fb432fab5e89c752b509be899e46a11e3680bb67032257d7d0104124e2c90bc3"
+
+      def install
+        bin.install "ci-info"
       end
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/suzuki-shunsuke/ci-info/releases/download/v2.1.0/ci-info_2.1.0_linux_amd64.tar.gz"
-      sha256 "e7fe3de9a50e15639dc82501ff23dd7ab2cddac0fb080e51700c4839de435985"
+      url "https://github.com/suzuki-shunsuke/ci-info/releases/download/v2.1.1/ci-info_2.1.1_linux_amd64.tar.gz"
+      sha256 "6a6c4c86dcf463f8c86cd26c87f48d8f72c51337f600baaa500000a0b304877e"
+
+      def install
+        bin.install "ci-info"
+      end
+    end
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/suzuki-shunsuke/ci-info/releases/download/v2.1.1/ci-info_2.1.1_linux_arm64.tar.gz"
+      sha256 "02c097095701db724b34febf9521383db7823477b3c802b0210332ec415dba7d"
 
       def install
         bin.install "ci-info"
