@@ -5,21 +5,21 @@
 class CiInfo < Formula
   desc "Get CI related information"
   homepage "https://github.com/suzuki-shunsuke/ci-info"
-  version "2.3.1"
+  version "2.3.2"
   license "MIT"
 
   on_macos do
-    on_intel do
-      url "https://github.com/suzuki-shunsuke/ci-info/releases/download/v2.3.1/ci-info_2.3.1_darwin_amd64.tar.gz"
-      sha256 "12ccac8418415e5f28012e864e1714a84636c3720f2166b9a3b27e15393870c6"
+    if Hardware::CPU.intel?
+      url "https://github.com/suzuki-shunsuke/ci-info/releases/download/v2.3.2/ci-info_2.3.2_darwin_amd64.tar.gz"
+      sha256 "36a12c7598513e5c9405bc61eee1ea78aff4f7a07033815c3fce32cbf77c4ce5"
 
       def install
         bin.install "ci-info"
       end
     end
-    on_arm do
-      url "https://github.com/suzuki-shunsuke/ci-info/releases/download/v2.3.1/ci-info_2.3.1_darwin_arm64.tar.gz"
-      sha256 "7fec0b88d213986b16605dd8e64f6230e4b4fc605a0ce4c2fd9698fdc40d3e2d"
+    if Hardware::CPU.arm?
+      url "https://github.com/suzuki-shunsuke/ci-info/releases/download/v2.3.2/ci-info_2.3.2_darwin_arm64.tar.gz"
+      sha256 "40be50a5b11c7467dd5a37ab75a2c87f21d8a0bc45fa529ea87812ba64d97140"
 
       def install
         bin.install "ci-info"
@@ -28,20 +28,20 @@ class CiInfo < Formula
   end
 
   on_linux do
-    on_intel do
+    if Hardware::CPU.intel?
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/suzuki-shunsuke/ci-info/releases/download/v2.3.1/ci-info_2.3.1_linux_amd64.tar.gz"
-        sha256 "66c78bebe4c4b0ce28e7aa5cd06fdab9db12e9d4116be9135224dee55b94cf38"
+        url "https://github.com/suzuki-shunsuke/ci-info/releases/download/v2.3.2/ci-info_2.3.2_linux_amd64.tar.gz"
+        sha256 "f39da9a1f7a488e675c649030a8911dc057e835bbee25cee2bc3846947665ae2"
 
         def install
           bin.install "ci-info"
         end
       end
     end
-    on_arm do
+    if Hardware::CPU.arm?
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/suzuki-shunsuke/ci-info/releases/download/v2.3.1/ci-info_2.3.1_linux_arm64.tar.gz"
-        sha256 "5758eac473d6bff381761b2aa88218ee28828666e799c10e856417a89e77928c"
+        url "https://github.com/suzuki-shunsuke/ci-info/releases/download/v2.3.2/ci-info_2.3.2_linux_arm64.tar.gz"
+        sha256 "7afca91b9a278d0f63f0b7d4920ab224c6bb52c69cde2ab41440e48901aef273"
 
         def install
           bin.install "ci-info"
