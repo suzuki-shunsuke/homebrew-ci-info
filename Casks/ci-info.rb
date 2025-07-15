@@ -2,7 +2,7 @@
 cask "ci-info" do
   desc "Get CI related information"
   homepage "https://github.com/suzuki-shunsuke/ci-info"
-  version "2.3.3"
+  version "2.3.5"
 
   livecheck do
     skip "Auto-generated on release."
@@ -12,23 +12,23 @@ cask "ci-info" do
 
   on_macos do
     on_intel do
-      url "https://github.com/suzuki-shunsuke/ci-info/releases/download/v2.3.3/ci-info_2.3.3_darwin_amd64.tar.gz"
-      sha256 "1176d14ae195f8cc731151551613aec83d0350ec0d7219920237eb6604acda9c"
+      url "https://github.com/suzuki-shunsuke/ci-info/releases/download/v2.3.5/ci-info_2.3.5_darwin_amd64.tar.gz"
+      sha256 "e6bbf259a66b389ef534bb5c767cd08beca0222c74ec0a5078b412a3b98dbcfe"
     end
     on_arm do
-      url "https://github.com/suzuki-shunsuke/ci-info/releases/download/v2.3.3/ci-info_2.3.3_darwin_arm64.tar.gz"
-      sha256 "aecd17d7d6b8941de98117363a1a70ce1d7d970575a1d0c93c4e5b6fa5fd6c51"
+      url "https://github.com/suzuki-shunsuke/ci-info/releases/download/v2.3.5/ci-info_2.3.5_darwin_arm64.tar.gz"
+      sha256 "b6835470bcb4a9e9c78e16f0c71cb5fcc39cc8a63fbefedd14af8b2a3b32d12d"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/suzuki-shunsuke/ci-info/releases/download/v2.3.3/ci-info_2.3.3_linux_amd64.tar.gz"
-      sha256 "e448a8db5c2a80cc5f57aa97e70cba7c7e4c1ca44bd6536e9b37faeeda60a1c1"
+      url "https://github.com/suzuki-shunsuke/ci-info/releases/download/v2.3.5/ci-info_2.3.5_linux_amd64.tar.gz"
+      sha256 "7aa8f327585c6b02f73de2d082817de5be52cb44f21c6683b4a2b20d10cc35ae"
     end
     on_arm do
-      url "https://github.com/suzuki-shunsuke/ci-info/releases/download/v2.3.3/ci-info_2.3.3_linux_arm64.tar.gz"
-      sha256 "f91d270059d17bb83930f506e9fd77dd0b4ab04fba4fa044574449be4b6dd71c"
+      url "https://github.com/suzuki-shunsuke/ci-info/releases/download/v2.3.5/ci-info_2.3.5_linux_arm64.tar.gz"
+      sha256 "9dcdeb6eb3b4514393bfd569fd6f9ecac03001341fd30a1634d0baa6ac0fde56"
     end
   end
 
