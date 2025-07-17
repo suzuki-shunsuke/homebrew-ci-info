@@ -2,7 +2,7 @@
 cask "ci-info" do
   desc "Get CI related information"
   homepage "https://github.com/suzuki-shunsuke/ci-info"
-  version "2.3.5"
+  version "2.3.6"
 
   livecheck do
     skip "Auto-generated on release."
@@ -12,23 +12,29 @@ cask "ci-info" do
 
   on_macos do
     on_intel do
-      url "https://github.com/suzuki-shunsuke/ci-info/releases/download/v2.3.5/ci-info_2.3.5_darwin_amd64.tar.gz"
-      sha256 "e6bbf259a66b389ef534bb5c767cd08beca0222c74ec0a5078b412a3b98dbcfe"
+      url "https://github.com/suzuki-shunsuke/ci-info/releases/download/v2.3.6/ci-info_2.3.6_darwin_amd64.tar.gz"
+      sha256 "5aa90ae93b7826802ec8aec6f5574a5dbcd3dbb85832236dbac8b52d6e279d7e"
     end
     on_arm do
-      url "https://github.com/suzuki-shunsuke/ci-info/releases/download/v2.3.5/ci-info_2.3.5_darwin_arm64.tar.gz"
-      sha256 "b6835470bcb4a9e9c78e16f0c71cb5fcc39cc8a63fbefedd14af8b2a3b32d12d"
+      url "https://github.com/suzuki-shunsuke/ci-info/releases/download/v2.3.6/ci-info_2.3.6_darwin_arm64.tar.gz"
+      sha256 "f61b7755191c2ffc8dd7e0bbe4f35ef88e18c47032c5ca3c75796ec9db87c631"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/suzuki-shunsuke/ci-info/releases/download/v2.3.5/ci-info_2.3.5_linux_amd64.tar.gz"
-      sha256 "7aa8f327585c6b02f73de2d082817de5be52cb44f21c6683b4a2b20d10cc35ae"
+      url "https://github.com/suzuki-shunsuke/ci-info/releases/download/v2.3.6/ci-info_2.3.6_linux_amd64.tar.gz"
+      sha256 "9b0398e6049dfefe6a4786207facc75a01f5bcaeb70570b37de902f2b6a89eb7"
     end
     on_arm do
-      url "https://github.com/suzuki-shunsuke/ci-info/releases/download/v2.3.5/ci-info_2.3.5_linux_arm64.tar.gz"
-      sha256 "9dcdeb6eb3b4514393bfd569fd6f9ecac03001341fd30a1634d0baa6ac0fde56"
+      url "https://github.com/suzuki-shunsuke/ci-info/releases/download/v2.3.6/ci-info_2.3.6_linux_arm64.tar.gz"
+      sha256 "8f06375955c17f6f037726d2b3dfe1be76cee5996a7f582419fedc14cc0f395d"
+    end
+  end
+
+  postflight do
+    if system_command("/usr/bin/xattr", args: ["-h"]).exit_status == 0
+      system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}/ci-info"]
     end
   end
 
